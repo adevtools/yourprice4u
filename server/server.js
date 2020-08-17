@@ -21,22 +21,22 @@ app.use(express.json({
     type: ['application/json', 'text/plain']
 }))
 
-app.get("/", (req, res) => {
-    const path = resolve(process.env.STATIC_DIR + "/index.html");
-    res.sendFile(path);
-});
-
-
-
-
-app.post('/contact',  async (req, res) => {
-    await email_functions.send_contactUs_email(req.body, res);
-});
-
-
 app.get("*", (req, res) => {
     const path = resolve(process.env.STATIC_DIR + "/index.html");
     res.sendFile(path);
 });
+//
+//
+//
+//
+// app.post('/contact',  async (req, res) => {
+//     await email_functions.send_contactUs_email(req.body, res);
+// });
+//
+//
+// app.get("*", (req, res) => {
+//     const path = resolve(process.env.STATIC_DIR + "/index.html");
+//     res.sendFile(path);
+// });
 
 app.listen(process.env.PORT, () => console.log(`Node server listening on port ${process.env.PORT}!`));
